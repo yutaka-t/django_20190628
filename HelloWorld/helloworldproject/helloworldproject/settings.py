@@ -25,6 +25,7 @@ SECRET_KEY = '^4ke^-jtu0$_pikptdmh5zac3mhkni=ywt_61#7)+vz=r&hwxo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# djangoが受け取るwebサーバのアドレス
 ALLOWED_HOSTS = []
 
 
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# なにか処理を行う際に間に入って処理を行ってくれるもの
+# セッション管理の仕組み等がここにある
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,6 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# 最初に呼び出すプロジェクト(urlsファイル)
 ROOT_URLCONF = 'helloworldproject.urls'
 
 TEMPLATES = [
@@ -67,6 +71,7 @@ TEMPLATES = [
     },
 ]
 
+# webサーバとdjangoの間に入る設定の場所を指定
 WSGI_APPLICATION = 'helloworldproject.wsgi.application'
 
 
@@ -84,6 +89,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
+# パスワードのバリデーション
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
