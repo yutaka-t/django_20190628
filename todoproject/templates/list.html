@@ -10,19 +10,23 @@
 {% endblock %}
 
 {% block content %}
-<!--    container を使うと、外枠の長さをいい感じに調整してくれる -->
+
+    <!--    container を使うと、外枠の長さをいい感じに調整してくれる -->
     <div class='container'>
+
+        <a href="{% url 'todo:todo_create' %}" class="btn btn-info active" role="button" aria-pressed="true">追加</a>
+        <br>
+        <Hr>
+
         {% for item in object_list %}
-
             <div class="alert alert-{{ item.priority }}" role="alert">
-                <p>{{ item.title }}</p>
-                <a href="#" class="btn btn-info active" role="button" aria-pressed="true">編集</a>
-                <a href="#" class="btn btn-primary active" role="button" aria-pressed="true">削除</a>
-                <a href="#" class="btn btn-success active" role="button" aria-pressed="true">詳細</a>
+                <p>{{ item.title }}　期日 : {{ item.duedate }}</p>
+                <a href="{% url 'todo:todo_update' item.pk %}" class="btn btn-info active" role="button" aria-pressed="true">編集</a>
+                <a href="{% url 'todo:todo_delete' item.pk %}" class="btn btn-primary active" role="button" aria-pressed="true">削除</a>
+                <a href="{% url 'todo:todo_detail' item.pk %}" class="btn btn-success active" role="button" aria-pressed="true">詳細</a>
             </div>
-
-
         {% endfor %}
+
     </div>
 {% endblock content %}
 

@@ -6,7 +6,9 @@
       <w>endfor</w>
       <w>helloworld</w>
       <w>helloworldapp</w>
+      <w>jumbotron</w>
       <w>tododelete</w>
+      <w>todoupdate</w>
     </words>
   </dictionary>
 </component>
