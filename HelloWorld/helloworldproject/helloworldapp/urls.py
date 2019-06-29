@@ -13,10 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from .views import hello_function, HelloworldView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('helloworld/', include('helloworldapp.urls')),
+    path('f_base', hello_function),
+    # classベースの場合は、as_view() でオブジェクト化する必要がある
+    path('c_base', HelloworldView.as_view())
 ]
