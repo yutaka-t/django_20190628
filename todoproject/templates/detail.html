@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">詳細</h1>
+    <p class="lead">todo の詳細です。</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="alert alert-success" role="alert">
+      <p>タイトル       : {{ object.title }}</p>
+      <p>内容           : {{ object.memo }}</p>
+      <p>プライオリティ : {{ object.priority }}</p>
+      <p>期限           : {{ object.duedate }}</p>
+    </div>
+    <br/>
+    <Hr/>
+    <a href="{% url 'todo:todo_list' %}" class="btn btn-info active" role="button" aria-pressed="true">戻る</a>
+
+  </div>
+
+{% endblock content %}
