@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>リストテンプレートお試しページ</title>
+</head>
+<body>
+
+    {% for item in object_list %}
+        <ul>
+            <li>{{ item.title }}</li>
+            <li>{{ item.memo }}</li>
+        </ul>
+    {% endfor %}
+
+</body>
+</html>
