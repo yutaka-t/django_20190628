@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <!--    action は送信後の動作を指定する-->
+    <form action="" method="post">{% csrf_token %}
+
+        <!--   pタグの中に、formの内容を展開する(djangoの機能)     -->
+        {{ form.as_p }}
+
+        <input type="submit" value="作成する">
+
+    </form>
+
+    {% endblock content %}
+
+
+</body>
+</html>

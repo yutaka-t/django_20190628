@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>リストテンプレートお試しページ</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    {% for item in object_list %}
-        <ul>
-            <li>{{ item.title }}</li>
-            <li>{{ item.memo }}</li>
-        </ul>
-    {% endfor %}
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">ToDo List</h1>
+    <p class="lead">ToDo List を使って毎日を効率的に過ごそう！</p>
+  </div>
+</div>
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<!--    container を使うと、外枠の長さをいい感じに調整してくれる -->
+    <div class='container'>
+        {% for item in object_list %}
+
+            <div class="alert alert-{{ item.priority }}" role="alert">
+                <p>{{ item.title }}</p>
+                <a href="#" class="btn btn-info active" role="button" aria-pressed="true">編集</a>
+                <a href="#" class="btn btn-primary active" role="button" aria-pressed="true">削除</a>
+                <a href="#" class="btn btn-success active" role="button" aria-pressed="true">詳細</a>
+            </div>
+
+
+        {% endfor %}
+    </div>
+{% endblock content %}
+
