@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% endblock customcss %}
 
 {% block content %}
     <form class="form-signin" method="post">{% csrf_token %}
         <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+        <h1 class="h3 mb-3 font-weight-normal">ログインしてください</h1>
 
-            <label for="inputEmail" class="sr-only">Email address</label>
+            <label class="sr-only">login form</label>
 
             <!--   【重要】djangoは、name属性で DBと紐づけを行う     -->
             <input name='user_name' type="text" id="input_id" class="form-control" placeholder="username" required autofocus>

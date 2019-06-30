@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from .models import BoardModel
+from django.contrib.auth.decorators import login_required
 
 
-
+@login_required
 def signupfunc(request):
     if request.method == 'POST':
 
@@ -60,10 +62,42 @@ def loginfunc(request):
 
             # Redirect to a success page.
             # render()でも可能
-            return redirect('signup')
+            return redirect('list')
         else:
             # Return an 'invalid login' error message.
-            return redirect('signup')
+            return redirect('login')
     else:
         # getメソッド（初回ルート）の場合
         return render(request, 'login.html')
+
+
+"""
+login_required デコレータ
+https://docs.djangoproject.com/ja/2.2/topics/auth/default/#the-login-required-decorator
+
+もしユーザがログインしていなければ、settings.LOGIN_URL にリダイレクトし、
+クエリ文字列に現在の絶対パスを渡します。リダイレクト先の例: /accounts/login/?next=/polls/3/
+
+"""
+
+
+@login_required
+def listfunc(request):
+    object_list = BoardModel.objects.all()
+    return render(request, 'list.html', {'object_list': object_list})
+
+
+"""
+ユーザーをログアウトさせる
+https://docs.djangoproject.com/ja/2.2/topics/auth/default/#how-to-log-a-user-out
+"""
+
+
+def logoutfunc(request):
+    logout(request)
+    return redirect('login')
+
+
+def detailfunc(request, pk):
+    object = BoardModel.objects.get(pk=pk)
+    return render(request, 'detail.html', {'object': object})

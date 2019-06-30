@@ -3,12 +3,17 @@
     <words>
       <w>boardapp</w>
       <w>customcss</w>
+      <w>detailfunc</w>
       <w>duedate</w>
       <w>endblock</w>
       <w>endfor</w>
       <w>helloworld</w>
       <w>helloworldapp</w>
       <w>jumbotron</w>
+      <w>listfunc</w>
+      <w>logoutfunc</w>
+      <w>medi</w>
+      <w>readtext</w>
       <w>signupfunc</w>
       <w>tododelete</w>
       <w>todoupdate</w>
