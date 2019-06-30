@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+
 
 
 def signupfunc(request):
@@ -20,14 +22,48 @@ def signupfunc(request):
         username = request.POST['user_name']
         password = request.POST['password']
 
-        # ユーザ作成
-        # https://docs.djangoproject.com/ja/2.2/topics/auth/default/
-        # 引数 : ユーザ名,　e-mail(任意), password
-        user = User.objects.create_user(username, '', password)
+        # ユーザが既に登録されているかどうかをチェック
+        try:
+            User.objects.get(username=username)
+            return render(request, 'signup.html', {'error': '既に登録済みのユーザーです'})
 
-        return render(request, 'signup.html', {'some': 9999})
+        except:
+            # ユーザ作成
+            # https://docs.djangoproject.com/ja/2.2/topics/auth/default/#creating-users
+            # 引数 : ユーザ名,　e-mail(任意), password
+            user = User.objects.create_user(username, '', password)
+
+            return render(request, 'signup.html', {'some': 9999})
 
     else:
         print('this is get method')
 
     return render(request, 'signup.html', {'some': 'some_data'})
+
+
+def loginfunc(request):
+    """
+    ■ログインについてのdocument
+    https://docs.djangoproject.com/ja/2.2/topics/auth/default/#how-to-log-a-user-in
+
+    """
+    if request.method == 'POST':
+        # POSTデータの内容を取得
+        username = request.POST['user_name']
+        password = request.POST['password']
+
+        # 認証
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+
+            # Redirect to a success page.
+            # render()でも可能
+            return redirect('signup')
+        else:
+            # Return an 'invalid login' error message.
+            return redirect('signup')
+    else:
+        # getメソッド（初回ルート）の場合
+        return render(request, 'login.html')
