@@ -11,12 +11,13 @@ class BoardModel(models.Model):
     images = models.ImageField(upload_to='')
 
     # いいね
-    good = models.IntegerField()
+    good = models.IntegerField(null=True, blank=True, default=0)
 
     # 既読(既読数)
-    read = models.IntegerField()
+    read = models.IntegerField(default=0)
+
     # 既読(既読ユーザの記録)
-    readtext = models.CharField(max_length=200)
+    readtext = models.CharField(max_length=200, default="")
 
     def __str__(self):
         return self.title

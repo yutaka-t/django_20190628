@@ -18,10 +18,13 @@
             <p>内容: {{ object.content }}</p>
 
             <!--   画像表示       -->
-            <p><img class="mw-100" src="{{ object.images.url }}"></p>
+            <!--   画像の時は、 .url を付ける必要がある      -->
+            <!--  Bootstrap の Images  適用         -->
+            <!--    https://getbootstrap.com/docs/4.3/content/images/        -->
+            <p><img class="mw-100 img-fluid" src="{{ object.images.url }}"></p>
 
-            <a href="#" class="btn btn-primary" role="button" aria-pressed="true">いいね</a>
-            <a href="#" class="btn btn-secondary" role="button" aria-pressed="true">既読</a>
+            <a href="{% url 'good' object.pk %}" class="btn btn-primary" role="button" aria-pressed="true">いいねする</a>
+            <a href="{% url 'read' object.pk %}" class="btn btn-secondary" role="button" aria-pressed="true">既読にする</a>
         </div>
         <br>
         <Hr>

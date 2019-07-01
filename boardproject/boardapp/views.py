@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import BoardModel
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 
 @login_required
@@ -101,3 +103,55 @@ def logoutfunc(request):
 def detailfunc(request, pk):
     object = BoardModel.objects.get(pk=pk)
     return render(request, 'detail.html', {'object': object})
+
+
+def goodfunc(request, pk):
+    """
+    いいねボタンの挙動
+    :param request:
+    :param pk:
+    :return:
+    """
+    post = BoardModel.objects.get(pk=pk)
+    post.good += 1
+
+    # save することで、DBに書き込みが走る
+    post.save()
+
+    # 処理が終わったらリスト画面を表示
+    return redirect('list')
+
+
+def readfunc(request, pk):
+    """
+    既読ボタンの挙動
+    :param request:
+    :param pk:
+    :return:
+    """
+    post = BoardModel.objects.get(pk=pk)
+
+    # ログインしているユーザ情報を取得(フレームワークが入れてくれている)
+    # session情報を使ってログインした時点でrequestオブジェクトにuser情報が格納される
+    read_user_name = request.user.get_username()
+
+    # 既に現在のユーザが既読ボタンを押していないかをチェック
+    if read_user_name in post.readtext:
+        # print(f"post.readtext = {post.readtext}")
+        return redirect('list')
+    else:
+        post.read += 1
+
+        # 説明をわかりやすくする為、人の名前を入れるような簡易実装になっている
+        post.readtext = post.readtext + ' ' + read_user_name
+
+        post.save()
+        # print(f"post.readtext = {post.readtext}")
+        return redirect('list')
+
+
+class BoardCreate(CreateView):
+    template_name = 'create.html'
+    model = BoardModel
+    fields = ('title', 'content', 'author', 'images')
+    success_url = reverse_lazy('list')

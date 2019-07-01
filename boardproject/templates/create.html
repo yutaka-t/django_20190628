@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+        <!--   ユーザ認証されている場合は表示する     -->
+        {% if user.is_authenticated %}
+
+            <!-- 【重要】 enctype="multipart/form-data" は複数のデータをフォームで送る際に必要      -->
+            <form antion="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+                <!--   author まで入力できるようになる為、{{ form.as_p }}  は使わない　-->
+
+                <!--  【重要】  name 属性の値と models  記述の値を揃える       -->
+                </p>タイトル<input type="text", name="title"></p>
+                </p>内容<input type="text", name="content"></p>
+                </p>画像<input type="file", name="images"></p>
+
+                <!--    author は hidden で隠す        -->
+                <!--    {{ user.username }}　でログイン中のユーザ名が取得できる        -->
+                <input type="hidden" name="author" value="{{ user.username }}">
+
+                <input type="submit" value="作成する">
+            </form>
+
+        {% else %}
+            <div class="alert alert-secondary" role="alert">
+                <p>ログインしてください</p>
+                <br/>
+                <a href="{% url 'login' %}" class="btn btn-primary" role="button">ログイン画面へ</a>
+            </div>
+        {% endif %}
+
+    {% endblock content %}

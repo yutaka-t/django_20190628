@@ -7,12 +7,14 @@
       <w>duedate</w>
       <w>endblock</w>
       <w>endfor</w>
+      <w>goodfunc</w>
       <w>helloworld</w>
       <w>helloworldapp</w>
       <w>jumbotron</w>
       <w>listfunc</w>
       <w>logoutfunc</w>
       <w>medi</w>
+      <w>readfunc</w>
       <w>readtext</w>
       <w>signupfunc</w>
       <w>tododelete</w>
