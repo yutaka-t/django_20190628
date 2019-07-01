@@ -7,6 +7,6 @@ board project : method Based View
 
 <pre>
 python -m venv venv
-env\Scripts\activate
+venv\Scripts\activate
 pip install -r requirements.txt
 </pre>
