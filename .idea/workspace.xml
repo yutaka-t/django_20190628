@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0cf0102-9738-43df-af67-e2a66c19f119" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/boardproject/templates/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/yutaka.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/yutaka.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/boardapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/boardapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/boardapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/boardapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/boardapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/boardapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/templates/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boardproject/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/boardproject/templates/list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,8 +86,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="569" />
-    <option name="y" value="9" />
+    <option name="x" value="479" />
+    <option name="y" value="14" />
     <option name="width" value="1347" />
     <option name="height" value="1039" />
   </component>
@@ -124,20 +115,18 @@
             <path>
               <item name="django_20190628" type="b2602c69:ProjectViewProjectNode" />
               <item name="django_20190628" type="462c0819:PsiDirectoryNode" />
-              <item name="boardproject" type="462c0819:PsiDirectoryNode" />
-              <item name="boardapp" type="462c0819:PsiDirectoryNode" />
+              <item name="HelloWorld" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django_20190628" type="b2602c69:ProjectViewProjectNode" />
               <item name="django_20190628" type="462c0819:PsiDirectoryNode" />
-              <item name="boardproject" type="462c0819:PsiDirectoryNode" />
-              <item name="boardproject" type="462c0819:PsiDirectoryNode" />
+              <item name="todoproject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django_20190628" type="b2602c69:ProjectViewProjectNode" />
               <item name="django_20190628" type="462c0819:PsiDirectoryNode" />
-              <item name="boardproject" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="todoproject" type="462c0819:PsiDirectoryNode" />
+              <item name="todo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,7 +272,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="569" y="9" width="1347" height="1039" extended-state="0" />
+    <frame x="479" y="14" width="1347" height="1039" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13827349" />
       <window_info id="Favorites" order="1" side_tool="true" />
